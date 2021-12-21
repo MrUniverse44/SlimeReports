@@ -1,0 +1,6 @@
+name: SlimeReports
+version: '${project.version}'
+main: dev.mruniverse.slimereports.SlimeReports
+description: Simple Report Plugin
+depends:
+  - LiteBans
