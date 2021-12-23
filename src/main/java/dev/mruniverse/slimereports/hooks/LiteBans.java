@@ -13,14 +13,14 @@ import java.sql.ResultSet;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-public class LiteBans implements Listener {
+public class LiteBans implements Listener,Bans {
     private final SlimeReports slime;
-    private Database database;
+    private BanDatabase database;
 
     public LiteBans(SlimeReports slime) {
         this.slime = slime;
         try {
-            this.database = Database.get();
+            database = new LiteBansDatabase().get();
             slime.getLogs().info("Enabled hook with LiteBans");
         }catch (Throwable ignored) {
             this.database = null;
@@ -60,7 +60,7 @@ public class LiteBans implements Listener {
         }
     }
 
-    private void checkPrevention(String nick,UUID personalID,String resultIP) {
+    public void checkPrevention(String nick,UUID personalID,String resultIP) {
         String toString = personalID.toString();
         for(UUID uuid : database.getUsersByIP(resultIP)) {
             if(uuid.toString().equalsIgnoreCase(toString)){
@@ -69,7 +69,7 @@ public class LiteBans implements Listener {
         }
     }
 
-    public Database getData() {
+    public BanDatabase getData() {
         return database;
     }
 

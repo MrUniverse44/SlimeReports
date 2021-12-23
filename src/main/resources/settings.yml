@@ -1,0 +1,99 @@
+#      ___           ___                   ___           ___           ___           ___           ___           ___           ___           ___           ___
+#     /\  \         /\__\      ___        /\__\         /\  \         /\  \         /\  \         /\  \         /\  \         /\  \         /\  \         /\  \
+#    /::\  \       /:/  /     /\  \      /::|  |       /::\  \       /::\  \       /::\  \       /::\  \       /::\  \       /::\  \        \:\  \       /::\  \
+#   /:/\ \  \     /:/  /      \:\  \    /:|:|  |      /:/\:\  \     /:/\:\  \     /:/\:\  \     /:/\:\  \     /:/\:\  \     /:/\:\  \        \:\  \     /:/\ \  \
+#  _\:\~\ \  \   /:/  /       /::\__\  /:/|:|__|__   /::\~\:\  \   /::\~\:\  \   /::\~\:\  \   /::\~\:\  \   /:/  \:\  \   /::\~\:\  \       /::\  \   _\:\~\ \  \
+# /\ \:\ \ \__\ /:/__/     __/:/\/__/ /:/ |::::\__\ /:/\:\ \:\__\ /:/\:\ \:\__\ /:/\:\ \:\__\ /:/\:\ \:\__\ /:/__/ \:\__\ /:/\:\ \:\__\     /:/\:\__\ /\ \:\ \ \__\
+# \:\ \:\ \/__/ \:\  \    /\/:/  /    \/__/~~/:/  / \:\~\:\ \/__/ \/_|::\/:/  / \:\~\:\ \/__/ \/__\:\/:/  / \:\  \ /:/  / \/_|::\/:/  /    /:/  \/__/ \:\ \:\ \/__/
+#  \:\ \:\__\    \:\  \   \::/__/           /:/  /   \:\ \:\__\      |:|::/  /   \:\ \:\__\        \::/  /   \:\  /:/  /     |:|::/  /    /:/  /       \:\ \:\__\
+#   \:\/:/  /     \:\  \   \:\__\          /:/  /     \:\ \/__/      |:|\/__/     \:\ \/__/         \/__/     \:\/:/  /      |:|\/__/     \/__/         \:\/:/  /
+#    \::/  /       \:\__\   \/__/         /:/  /       \:\__\        |:|  |        \:\__\                      \::/  /       |:|  |                      \::/  /
+#     \/__/         \/__/                 \/__/         \/__/         \|__|         \/__/                       \/__/         \|__|                       \/__/
+#
+# Created by: MrUniverse44
+# Version: 1.0.0
+#
+# Variable list:
+# - %player%
+# - %executor%
+# - [new] or %new%
+# - %server%
+# - %permission%
+#
+settings:
+  # AntiBanEvading System
+  ban-evading:
+    # This is an optional module. so you need to enable it manually.
+    Enabled: true
+    #This is the notification system.
+    notify:
+      # Types: STAFF_ONLY, BROADCAST
+      type: STAFF_ONLY
+      # This is the notification message.
+      message: "&c%player% &7has been&c banned &7for&c ban-evading&7!"
+    # This command will be executed when the ban-evading is confirmed. To disable it remove all the text, like this: ' cmd: "" '
+    cmd: "ban %player% This user is doing ban-evading -s"
+  # Goto Command
+  go-to:
+    # This is an optional module. so you need to enable it manually.
+    Enabled: false
+    # This message will appear to the Command-Sender
+    message: "&aConnecting to server &a%server%"
+    # In these servers you can't use the command, and you can't go to these servers
+    blocked-server:
+      - auth1
+      - auth2
+    # Permission for the command, default: slimefriends.command.go
+    permission: slimefriends.command.go
+  # Admin Reports Command
+  reports:
+    accept:
+      # This message will appear to the Command-Sender
+      message: "&aYou accepted all reports of the user &b%player%"
+      # Permission for the command, default: slimefriends.command.go
+      permission: slimefriends.command.go
+      notify:
+        Enabled: true
+        message: "&aYour most recent report of an user has been accepted, the user has been &c&lSanctioned&a[new line]Thanks for reporting for a better server &b:)"
+    deny:
+      # This message will appear to the Command-Sender
+      message: "&aYou have denied all reports of the user &b%player%"
+      # Permission for the command, default: slimefriends.command.deny
+      permission: slimefriends.command.deny
+      notify:
+        Enabled: false
+        message: "&aYour most recent report of an user has been denied, thanks for reporting for a better server."
+  # User report command
+  report:
+    # This is the permission for report a user. To disable it remove all the text, like this: ' permission: "" '
+    permission: ""
+    # Message list
+    messages:
+      # Invalid Syntax message:
+      invalid-usage: "&7Please use &8/report (nick) (reasons)"
+      # Successfully reported.
+      succesfully: "&6The report was sent to the staff. Thanks for reporting"
+      # This message will appear to the staff.
+      staff-message: "&a[new]&a[new]&7New report from &b%executor%&8:[new]  &8- &7Reported: &b%player%[new]  &8- &7Server: &b%server%[new]  &8- &7Reason: &b%reason%[new]&a[new]&a[click_button]"
+    button:
+      hover: "&aClick to go to the server of &b%player%"
+      text: "&b&lCLICK TO GO TO THE SERVER"
+    # Conditions
+    condition-list:
+      # If you use the report command in an offline player the report will not be executed
+      only-report-online-players: false
+      # Only report with report-reasons,if the player reports with another reason and this reason is not in the path, the report will not be executed.
+      only-report-reasons-path: false
+    # This path is disabled by default.
+    report-reasons:
+      - killaura
+      - antikb
+      - fly
+      - flight
+      - fastbow
+      - hacks
+      - hack
+      - spam
+      - flood
+      - reach
+      - speed

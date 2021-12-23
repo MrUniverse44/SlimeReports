@@ -2,6 +2,7 @@ package dev.mruniverse.slimereports.runnables;
 
 import dev.mruniverse.slimereports.SlimeFiles;
 import dev.mruniverse.slimereports.SlimeReports;
+import dev.mruniverse.slimereports.SlimeSettings;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -22,17 +23,23 @@ public class BanExecutor implements Runnable{
 
     @Override
     public void run() {
-        String cmd = slime.getStorage().getControl(SlimeFiles.SETTINGS).getString("settings.ban-cmd","ban " + nick + " This user is doing ban-evading -s");
-        String notify = slime.getStorage().getControl(SlimeFiles.SETTINGS).getString("settings.ban-notify","&c%player% &7has been&c banned &7for&c ban-evading&7!");
+        String cmd = slime.getStorage().getControl(SlimeFiles.SETTINGS).getString(SlimeSettings.BAN_EVADING_COMMAND.get(),"ban " + nick + " This user is doing ban-evading -s");
+        String notify = slime.getStorage().getControl(SlimeFiles.SETTINGS).getString(SlimeSettings.BAN_EVADING_NOTIFY_MESSAGE.get(),"&c%player% &7has been&c banned &7for&c ban-evading&7!");
         ProxyServer.getInstance().getPluginManager().dispatchCommand(ProxyServer.getInstance().getConsole(), cmd.replace("%player%",nick));
         Collection<ProxiedPlayer> collection = new ArrayList<>(ProxyServer.getInstance().getPlayers());
         TextComponent component = new TextComponent(
                 ChatColor.translateAlternateColorCodes('&',notify.replace("%player%",nick))
         );
-        for(ProxiedPlayer player : collection) {
-            if(hasPermission(player)) {
-                player.sendMessage(component);
+        if(slime.getStorage().getControl(SlimeFiles.SETTINGS).getString(SlimeSettings.BAN_EVADING_NOTIFY_TYPE.get(),"STAFF_ONLY").contains("STAFF")) {
+            for (ProxiedPlayer player : collection) {
+                if (hasPermission(player)) {
+                    player.sendMessage(component);
+                }
             }
+            return;
+        }
+        for (ProxiedPlayer player : collection) {
+            player.sendMessage(component);
         }
     }
 

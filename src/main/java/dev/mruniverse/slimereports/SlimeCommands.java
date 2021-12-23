@@ -3,15 +3,13 @@ package dev.mruniverse.slimereports;
 import dev.mruniverse.slimereports.commands.*;
 
 public class SlimeCommands {
-    private final SlimeReports slime;
+    private final SlimeUtils slimeUtils = new SlimeUtils();
 
-    private AcceptHistoryCommand acceptHistoryCommand;
+    private final SlimeReports slime;
 
     private GotoCommand gotoCommand;
 
     private ReloadCommand reloadCommand;
-
-    private RemoveHistoryCommand removeHistoryCommand;
 
     private ReportsCommand reportsCommand;
 
@@ -28,6 +26,13 @@ public class SlimeCommands {
     }
 
     public void update() {
+        gotoCommand.update();
+        reloadCommand.update();
+        reportsCommand.update();
+        reportCommand.update();
+    }
 
+    public SlimeUtils getSlimeUtils() {
+        return slimeUtils;
     }
 }
