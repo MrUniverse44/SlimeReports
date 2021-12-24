@@ -62,9 +62,4 @@ public final class SlimeReports extends Plugin {
     public SlimeCommands getCommands() {
         return commands;
     }
-
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
-    }
 }

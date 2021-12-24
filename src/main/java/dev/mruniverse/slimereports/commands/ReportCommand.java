@@ -25,15 +25,12 @@ public class ReportCommand extends Command {
     @Override
     public void execute(CommandSender sender, String[] args) {
         if(args.length == 0 || args[0].equalsIgnoreCase("help")) {
-            /*
-             * WORKING
-             */
+            // TODO
             return;
         }
         utils.send(sender,"&cWorking");
     }
 
-    @SuppressWarnings("unused")
     public void update() {
 
     }
