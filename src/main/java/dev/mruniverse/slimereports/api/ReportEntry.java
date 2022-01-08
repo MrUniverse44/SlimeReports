@@ -3,16 +3,17 @@ package dev.mruniverse.slimereports.api;
 import dev.mruniverse.slimereports.SlimePlayer;
 
 import java.text.DateFormat;
+import java.util.Date;
 
 @SuppressWarnings("unused")
 public class ReportEntry {
 
     private final SlimePlayer reporter;
     private final SlimePlayer reported;
-    private final DateFormat date;
+    private final Date date;
     private final String reason;
 
-    public ReportEntry(SlimePlayer reporter,SlimePlayer reported,DateFormat date,String reason) {
+    public ReportEntry(SlimePlayer reporter,SlimePlayer reported,Date date,String reason) {
         this.reported = reported;
         this.reporter = reporter;
         this.reason = reason;
@@ -42,7 +43,7 @@ public class ReportEntry {
      *
      * @return the report-date in a DateFormat
      **/
-    public DateFormat getDate() {
+    public Date getDate() {
         return date;
     }
 
