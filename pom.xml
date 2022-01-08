@@ -64,14 +64,6 @@
             <url>https://jitpack.io</url>
         </repository>
         <repository>
-            <id>spicord-repo</id>
-            <url>https://repo.spicord.org/</url>
-        </repository>
-        <repository>
-            <id>arim-mvn-agpl3</id>
-            <url>https://mvn-repo.arim.space/affero-gpl3/</url>
-        </repository>
-        <repository>
             <id>spigotmc-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
