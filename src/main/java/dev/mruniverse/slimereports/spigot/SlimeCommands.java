@@ -1,6 +1,10 @@
-package dev.mruniverse.slimereports;
+package dev.mruniverse.slimereports.spigot;
 
-import dev.mruniverse.slimereports.commands.*;
+import dev.mruniverse.slimereports.SlimeUtils;
+import dev.mruniverse.slimereports.commands.spigot.GotoCommand;
+import dev.mruniverse.slimereports.commands.spigot.ReloadCommand;
+import dev.mruniverse.slimereports.commands.spigot.ReportCommand;
+import dev.mruniverse.slimereports.commands.spigot.ReportsCommand;
 
 public class SlimeCommands {
     private final SlimeUtils slimeUtils = new SlimeUtils();

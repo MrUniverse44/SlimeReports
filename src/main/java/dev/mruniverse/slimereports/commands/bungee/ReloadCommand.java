@@ -1,6 +1,6 @@
-package dev.mruniverse.slimereports.commands;
+package dev.mruniverse.slimereports.commands.bungee;
 
-import dev.mruniverse.slimereports.SlimeReports;
+import dev.mruniverse.slimereports.bungee.SlimeReports;
 import dev.mruniverse.slimereports.SlimeUtils;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.plugin.Command;
@@ -14,7 +14,7 @@ public class ReloadCommand extends Command {
 
     private final String prefix;
 
-    public ReloadCommand(SlimeReports slime,String command) {
+    public ReloadCommand(SlimeReports slime, String command) {
         super(command);
         this.slime = slime;
         this.command = command;
@@ -32,6 +32,6 @@ public class ReloadCommand extends Command {
     }
 
     public void update() {
-
+        //TODO
     }
 }

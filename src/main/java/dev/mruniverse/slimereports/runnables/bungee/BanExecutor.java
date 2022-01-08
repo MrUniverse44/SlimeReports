@@ -1,7 +1,7 @@
-package dev.mruniverse.slimereports.runnables;
+package dev.mruniverse.slimereports.runnables.bungee;
 
 import dev.mruniverse.slimereports.SlimeFiles;
-import dev.mruniverse.slimereports.SlimeReports;
+import dev.mruniverse.slimereports.bungee.SlimeReports;
 import dev.mruniverse.slimereports.SlimeSettings;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.ProxyServer;
@@ -16,7 +16,7 @@ public class BanExecutor implements Runnable{
 
     private final String nick;
 
-    public BanExecutor(SlimeReports slime,String nick) {
+    public BanExecutor(SlimeReports slime, String nick) {
         this.slime = slime;
         this.nick = nick;
     }

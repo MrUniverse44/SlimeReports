@@ -1,6 +1,5 @@
 name: SlimeReports
 version: '${project.version}'
-main: dev.mruniverse.slimereports.bungee.SlimeReports
+main: dev.mruniverse.slimereports.spigot.SlimeReports
 description: Simple Report Plugin
-softdepends:
-  - LiteBans
+softdepends: [LiteBans]

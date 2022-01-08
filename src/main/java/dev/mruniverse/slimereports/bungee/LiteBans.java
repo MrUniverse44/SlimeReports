@@ -1,8 +1,10 @@
-package dev.mruniverse.slimereports.hooks;
+package dev.mruniverse.slimereports.bungee;
 
-import dev.mruniverse.slimereports.SlimeReports;
-import dev.mruniverse.slimereports.runnables.BanExecutor;
-import dev.mruniverse.slimereports.runnables.BanVerificator;
+import dev.mruniverse.slimereports.hooks.BanDatabase;
+import dev.mruniverse.slimereports.hooks.Bans;
+import dev.mruniverse.slimereports.hooks.LiteBansDatabase;
+import dev.mruniverse.slimereports.runnables.bungee.BanExecutor;
+import dev.mruniverse.slimereports.runnables.bungee.BanVerificator;
 import litebans.api.Database;
 import net.md_5.bungee.api.event.LoginEvent;
 import net.md_5.bungee.api.plugin.Listener;
@@ -13,7 +15,7 @@ import java.sql.ResultSet;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-public class LiteBans implements Listener,Bans {
+public class LiteBans implements Listener, Bans {
     private final SlimeReports slime;
     private BanDatabase database;
 

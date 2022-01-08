@@ -1,11 +1,11 @@
-package dev.mruniverse.slimereports.commands;
+package dev.mruniverse.slimereports.commands.bungee;
 
-import dev.mruniverse.slimereports.SlimeReports;
+import dev.mruniverse.slimereports.bungee.SlimeReports;
 import dev.mruniverse.slimereports.SlimeUtils;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.plugin.Command;
 
-public class ReportsCommand extends Command {
+public class GotoCommand extends Command {
     private final SlimeReports slime;
 
     private final SlimeUtils utils;
@@ -14,7 +14,7 @@ public class ReportsCommand extends Command {
 
     private final String prefix;
 
-    public ReportsCommand(SlimeReports slime,String command) {
+    public GotoCommand(SlimeReports slime, String command) {
         super(command);
         this.slime = slime;
         this.command = command;
@@ -32,6 +32,6 @@ public class ReportsCommand extends Command {
     }
 
     public void update() {
-
+        //TODO
     }
 }

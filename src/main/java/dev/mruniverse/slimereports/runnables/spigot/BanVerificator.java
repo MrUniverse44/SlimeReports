@@ -1,10 +1,11 @@
-package dev.mruniverse.slimereports.runnables;
+package dev.mruniverse.slimereports.runnables.spigot;
 
-import dev.mruniverse.slimereports.SlimeReports;
+import dev.mruniverse.slimereports.spigot.SlimeReports;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.UUID;
 
-public class BanVerificator implements Runnable {
+public class BanVerificator extends BukkitRunnable {
 
     private final SlimeReports slime;
 
@@ -14,7 +15,7 @@ public class BanVerificator implements Runnable {
 
     private final String ip;
 
-    public BanVerificator(SlimeReports slime,String nick,UUID personalID,String ip) {
+    public BanVerificator(SlimeReports slime, String nick, UUID personalID, String ip) {
         this.slime = slime;
         this.personalID = personalID;
         this.ip = ip;
@@ -32,3 +33,4 @@ public class BanVerificator implements Runnable {
 
 
 }
+

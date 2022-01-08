@@ -1,18 +1,17 @@
-package dev.mruniverse.slimereports;
+package dev.mruniverse.slimereports.spigot;
 
 import dev.mruniverse.guardianstorageapi.GuardianStorageAPI;
 import dev.mruniverse.guardianstorageapi.enums.ControlType;
-import dev.mruniverse.guardianstorageapi.inputs.BungeeInputManager;
+import dev.mruniverse.guardianstorageapi.inputs.SpigotInputManager;
 import dev.mruniverse.guardianstorageapi.interfaces.FileStorage;
 import dev.mruniverse.guardianstorageapi.interfaces.GLogger;
-import dev.mruniverse.guardianstorageapi.logs.BungeeLogs;
+import dev.mruniverse.guardianstorageapi.logs.SpigotLogs;
 import dev.mruniverse.guardianstorageapi.utils.GuardianHelper;
+import dev.mruniverse.slimereports.SlimeFiles;
 import dev.mruniverse.slimereports.hooks.Bans;
-import dev.mruniverse.slimereports.hooks.LiteBans;
-import net.md_5.bungee.api.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
-public final class SlimeReports extends Plugin {
-
+public class SlimeReports extends JavaPlugin {
     private Bans bans;
 
     private SlimeCommands commands;
@@ -23,14 +22,14 @@ public final class SlimeReports extends Plugin {
 
     @Override
     public void onEnable() {
-        logs = new BungeeLogs(this, "SlimeReports", "dev.mruniverse.slimereports.")
+        logs = new SpigotLogs("SlimeReports", "dev.mruniverse.slimereports.", "dev.mruniverse")
                 .setDebugPrefix("&8[&bSlimeReports&8] &7")
                 .setErrorPrefix("&8[&cSlimeReports&8] &7")
                 .setInfoPrefix("&8[&eSlimeReports&8] &7")
                 .setWarnPrefix("&8[&dSlimeReports&8] &7");
 
-        storage = new GuardianStorageAPI(ControlType.BUNGEECORD, logs)
-                .setInputManager(new BungeeInputManager(this))
+        storage = new GuardianStorageAPI(ControlType.SPIGOT, logs)
+                .setInputManager(new SpigotInputManager(this))
                 .createStorage(
                         getDataFolder(),
                         GuardianHelper.process(SlimeFiles.class)
@@ -39,7 +38,7 @@ public final class SlimeReports extends Plugin {
         commands = new SlimeCommands(this);
 
         if(getStorage().getControl(SlimeFiles.SETTINGS).getStatus("settings.ban-evading.Enabled")) {
-            if (getProxy().getPluginManager().getPlugin("LiteBans") != null) {
+            if (getServer().getPluginManager().getPlugin("LiteBans") != null) {
                 bans = new LiteBans(this);
             } else {
                 bans = null;
